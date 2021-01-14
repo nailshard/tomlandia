@@ -1,0 +1,139 @@
+{
+    "coc.preferences.formatOnSaveFiletypes": ["css", "Markdown", "yaml"],
+    "coc.preferences.snippets.enable": true,
+    "coc.preferences.useQuickfixForLocations": true,
+    "coc.preferences.currentFunctionSymbolAutoUpdate": true,
+    "diagnostic.virtualText": true,
+    "diagnostic.virtualTextPrefix": " # ",
+    "diagnostic.refreshOnInsertMode": false,
+    "diagnostic.refreshAfterSave": false,
+    "diagnostic.checkCurrentLine": true,
+    "diagnostic.messageTarget": "echo",
+    "diagnostic.enableSign": false,
+
+    "list.source.files.excludePatterns": ["**/.git/**", "**/.ccls-cache/**"],
+    "coc.preferences.colorSupport": true,
+    "highlight.colors.enable": true,
+
+        // python
+    "python.pythonPath": "/home/tom/.pyenv/shims/python",
+    "python.venvPath": ["~/.virtualenvs", "~/.cache/pypoetry/virtualenvs"],
+// jedi
+    //"python.jediPath": "/Users/username/venvs/jedi/lib/python3.8/site-packages/",
+    "python.jediEnabled": false,
+    //"suggest.timeout": 5000,
+//formatting
+    "python.formatting.provider": "black",
+    "python.formatting.blackPath": "/Users/username/venvs/black/bin/black",
+//linting
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": false,
+
+    //"python.linting.pylintPath": "/Users/username/venvs/pylint/bin/pylint"
+
+    "signature.target": "echo",
+    "suggest.autoTrigger": "always",
+    "suggest.triggerAfterInsertEnter": true,
+    "suggest.snippetIndicator": "►",
+    "suggest.maxCompleteItemCount": 80,
+    "suggest.labelMaxLength": 40,
+    "suggest.floatEnable": true,
+    "suggest.timeout": 10000,
+    "suggest.completionItemKindLabels": {
+        "text": "t",
+        "method": "m",
+        "function": ""
+    },
+    "suggest.localityBonus": true,
+    "languageserver": {
+        "go": {
+            "command": "gopls",
+            "rootPatterns": ["go.mod"],
+            "trace.server": "verbose",
+            "filetypes": ["go"]
+        },
+        "sh": {
+            "command": "bash-language-server", 
+            "args": ["start"],
+            "filetypes": ["sh"]
+        },
+        "python": {
+            "command": "pyls",
+            "args": [
+            //    "-v",
+                "--log-file",
+                "/tmp/lsp_python.log"
+            ],
+            //"trace.server": "verbose",
+            "filetypes": [
+                "python"
+            ],
+            "settings": {
+                "pyls": {
+                    "enable": true,
+             //       "trace": {
+              //          "server": "verbose"
+               //     },
+                    "commandPath": "/home/tom/.pyenv/shims/pyls",
+                    "configurationSources": [
+                        "pycodestyle"
+                    ],
+                    "plugins": {
+                        "jedi_completion": {
+                            "enabled": true
+                        },
+                        "jedi_hover": {
+                            "enabled": false
+                        },
+                        "jedi_references": {
+                            "enabled": true
+                        },
+                        "jedi_signature_help": {
+                            "enabled": false
+                        },
+                        "jedi_symbols": {
+                            "enabled": true,
+                            "all_scopes": true
+                        },
+                        "mccabe": {
+                            "enabled": true,
+                            "threshold": 15
+                        },
+                        "preload": {
+                            "enabled": true
+                        },
+                        "pycodestyle": {
+                            "enabled": false
+                        },
+                        "pydocstyle": {
+                            "enabled": false,
+                            "match": "(?!test_).*\\.py",
+                            "matchDir": "[^\\.].*"
+                        },
+                        "pyflakes": {
+                            "enabled": false
+                        },
+                        "rope_completion": {
+                            "enabled": true
+                        },
+                        "yapf": {
+                            "enabled": true
+                        }
+                    }
+                }
+            }
+        },
+        "yaml": {
+            "command": "yaml-language-server",
+            "args": ["--stdio"],
+            "trace.server": "verbose",
+            "filetypes": ["yaml"],
+            "format": {
+                "singleQuote": true,
+                "bracketSpacing": false,
+                "enable": true,
+                "proseWrap": "preserve"
+            }
+        }
+    }
+}

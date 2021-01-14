@@ -1,0 +1,112 @@
+#!/bin/sh
+echo '.shrc'
+# }}}1
+
+# TOM_SYSTEMINFO {{{1
+
+export TOM_SYSTEMINFO
+: "${TOM_SYSTEMINFO:=$(uname -a)}"
+
+# }}}1
+
+# }}}1
+if [ "${TOM_BENCHMARKS:-0}" -eq 1 ]; then
+  [ "${TOM_ZSHRC_LOADING:-0}" -eq 1 ] || {
+    case $TOM_SYSTEMINFO in
+      # BSD and busybox date don't handle nanoseconds
+      *BSD*|*bsd*|DragonFly*) ;;
+      *) ! _agkdot_is_busybox && TOM_SHRC_START="$(date +%s%N)" ;;
+    esac
+  }
+fi
+# }}}1
+
+[ -z "$ENV" ] && [ -f "$HOME/.profile" ] && . "$HOME/.profile"
+
+alias pl='print -rl --'
+alias ls="exa -bh --color=auto"
+alias l="ls -la"
+alias l.='ls -d .*'
+alias ll.='ls -ld .?*' 
+alias la='ls -a'
+alias ll='ls -lt created'  
+alias rm='command rm -i'
+alias alias df='df -h'
+alias du='du -h'
+alias cp='cp -v'
+alias mv='mv -v'
+alias plast="last -20"
+alias reload="exec $SHELL -l -i"
+alias grep="\
+        command grep \
+          --colour=auto \
+          --binary-files=without-match \
+          --directories=skip \
+          "
+alias ii='ip -color -human'
+alias lynx="command lynx -accept-all-cookies"  ult="ulimit -c 195312; echo $$"
+alias n1ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias n1ips="ifconfig -a | grep -o \
+  'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' \
+  | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
+alias n1sniff="\
+  sudo ngrep \
+  -d $(ip route show default | sed  -n -e 's/^.*dev \([^ ]*\).*/\1/p') \
+  -t '^(GET|POST) ' 'tcp and port 80 or 443'"
+alias n1httpdump="\
+  sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
+
+
+alias ns='netstat -antup'
+
+
+alias pd="pushd"
+alias pdh="pushd ~"
+alias ppd="popd"
+alias less=/usr/bin/nvimpager
+
+alias ys="yay -Ss"
+alias yy="yay -S"
+alias yql="yay -Ql"
+alias yyoc="yay -S --noconfirm --overwrite \*"
+alias yyo="yay -S --overwrite \*"
+alias yyu="yay -Syyu --noconfirm --overwrite \*"
+alias yql="yay -Ql"
+
+alias gp='git add . && git commit -m "auto push" && git push'
+alias zrc='nvim ~/.zshrc'
+
+alias t="tmux"
+alias ta="t a -t"
+alias tls="t ls"
+alias tn="t new -t"
+
+# }}}1
+
+# End .shrc benchmark {{{1
+
+if [ "${TOM_BENCHMARKS:-0}" -eq 1 ]; then
+  [ "${TOM_ZSHRC_LOADING:-0}" -eq 1 ] || {
+    case $TOM_SYSTEMINFO in
+      FreeBSD*) ;;
+      *)
+        if ! _agkdot_is_busybox; then
+          TOM_SHRC_FINISH="$(date +%s%N)"
+          TOM_DIFFERENCE=$(( TOM_SHRC_FINISH - TOM_SHRC_START ))
+          echo ".shrc loaded in $((TOM_DIFFERENCE/1000000))ms."
+        fi
+        ;;
+    esac
+  }
+fi
+
+unset TOM_SHRC_START TOM_SHRC_FINISH TOM_DIFFERENCE
+
+# }}}1
+
+# Source ~/.shrc.local {{{1
+
+# shellcheck source=/dev/null
+if [ -f "$HOME/.shrc.local" ]; then . "$HOME/.shrc.local"; fi
+
+# }}}1

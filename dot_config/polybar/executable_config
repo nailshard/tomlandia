@@ -1,0 +1,504 @@
+;--------------------------------------------------------------------;
+; Common
+;--------------------------------------------------------------------;
+
+[colors]
+black0 = #1d2821
+black1= ${xrdb:color0:#282828}
+black2 = ${xrdb:color8:#928374}
+red1 = ${xrdb:color1:#cc241d}
+red2 = ${xrdb:color9:#fb4934}
+green1 = ${xrdb:color2:#98971a}
+green2 = ${xrdb:color10:#b8bb26}
+yellow1 = ${xrdb:color3:#d79921}
+yellow2 = ${xrdb:color11:#fabd2f}
+blue1 = ${xrdb:color4:#458588}
+blue2 = ${xrdb:color12:#83a598}
+magenta1 = ${xrdb:color5:#b16286}
+magenta2 = ${xrdb:color13:#d3869b}
+cyan1 = ${xrdb:color6:#689d6a}
+cyan2 = ${xrdb:color14:#8ec07c}
+white1 = ${xrdb:color7:#a89984}
+white2 = ${xrdb:color15:#ebdbb2}
+orange1 = #d65d0e
+orange2 = #fe8019
+background = #aa282828 
+;${xrdb:background:#7e282828}
+foreground = ${xrdb:foreground:#ebdbb2}
+background-alt = ${xrdb:background-alt:#32302f}
+foreground-alt = ${xrdb:foreground-alt:#a89984}
+accent = ${xrdb:color14:#8ec07c}
+linecolor = background-alt
+bordercolor = black2
+
+
+[common/bar]
+override-redirect = false
+
+width = ${env:PM_BAR_WIDTH:98%}
+height = ${env:PM_BAR_HEIGHT:3%}
+offset-x = 8
+offset-y = 8 
+radius = 0
+fixed-center = true
+
+; font-0 = "IBM Plex Sans:weight=Regular:size=12;4"
+font-0 = "SFMonoPowerline:weight=Regular:size=14;4"
+font-1 = "FontAwesome5Free:style=Solid:pixelsize=12.5;3"
+font-2 = "FontAwesome5Brands:style=Solid:pixelsize=12;3"
+; font-3 = "Weather Icons:size=16;3"
+; font-3 = "Cascadia Code iCursive Cg:pixelsize=12;3"
+font-3 = "Material Icons:pixelsize=17;7"
+font-4 = "Ionicons:style=Regular:pixelsize=20;2"
+font-5 = "Spy Agency:pixelsize=12;4"
+font-6 = "Spy Agency Laser:pixelsize=12;4"
+font-7 = "Geforce:style=Bold:pixelsize=12;5"
+font-8 = "Cascadia Code iCursive Cg:pixelsize=24;6"
+font-9 = "Symbola:size=20;6"
+font-10 = "Anka/Coder:size=16;3"
+
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 4
+line-color = ${colors.linecolor}
+
+border-size = 0
+
+padding-left = 3
+padding-right = 3
+
+module-margin-left  = 0
+module-margin-right = 0
+
+modules-left = weathertext aqi
+modules-center = crypto
+modules-right = clock
+
+wm-restack = bspwm
+
+locale = en_US.UTF-8
+
+click-left =
+click-middle =
+click-right =
+scroll-up =
+scroll-down =
+double-click-left =
+double-click-middle =
+double-click-right =
+
+[common/bar-secondary]
+inherit = common/bar
+
+bottom = true
+
+modules-left = bspwm-secondary gap-small title
+modules-center =
+modules-right =
+
+[common/bspwm]
+type = internal/bspwm
+
+pin-workspaces = true
+inline-mode = false
+enable-click = true
+enable-scroll = true
+reverse-scroll = true
+fuzzy-match = true
+
+format = <label-state> <label-mode>
+
+label-dimmed-foreground = ${colors.foreground-alt}
+
+label-dimmed-occupied = %icon%
+label-dimmed-occupied-foreground = ${colors.foreground-alt}
+label-dimmed-occupied-padding = 1
+
+label-dimmed-empty = %icon%
+label-dimmed-empty-foreground = ${colors.background-alt}
+label-dimmed-empty-padding = 1
+
+label-focused = %icon%
+label-focused-foreground = ${colors.accent}
+label-focused-background = ${colors.background-alt}
+label-focused-underline = ${colors.accent}
+label-focused-padding = 1
+
+label-occupied = %icon%
+label-occupied-foreground = ${colors.foreground}
+label-occupied-padding = 1
+
+label-urgent = %icon%
+label-urgent-foreground = ${colors.orange2}
+label-urgent-background = ${colors.black0}
+label-urgent-padding = 1
+
+label-empty = %icon%
+label-empty-foreground = ${colors.blue1}
+label-empty-padding = 1
+
+label-monocle = 
+label-monocle-foreground = ${colors.yellow1}
+label-tiled = 
+label-tiled-foreground = ${colors.yellow1}
+label-fullscreen = 
+label-fullscreen-foreground = ${colors.cyan2}
+label-floating = 
+label-floating-foreground = ${colors.cyan2}
+label-pseudotiled = P
+label-pseudotiled-foreground = ${colors.cyan2}
+label-locked = " "
+label-locked-foreground = ${colors.red1}
+label-sticky = " "
+label-sticky-foreground = ${colors.cyan1}
+label-private = " "
+label-private-foreground = ${colors.black2}
+
+[module/bspwm-secondary]
+inherit = common/bspwm
+
+ws-icon-0 = terminal;
+ws-icon-1 = code;
+ws-icon-default = 
+
+[module/title]
+type = internal/xwindow
+format-padding = 0
+format-foreground = ${colors.blue2}
+label = %title:0:30:...%
+
+[module/gap-small]
+type = custom/text
+content = "  "
+
+[module/gap]
+type = custom/text
+content = "     "
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+
+
+use-ui-max = false
+label-volume = %percentage%%
+interval = 5
+label-volume-foreground = ${colors.green2}
+format-volume = <ramp-volume> <label-volume>
+label-muted = 
+label-muted-foreground = ${colors.black2}
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
+click-right = pavucontrol
+click-left = amixer set Master toggle
+
+;--------------------------------------------------------------------;
+; Top panel
+;--------------------------------------------------------------------;
+
+[bar/top]
+inherit = common/bar
+
+padding-left = 3
+
+monitor = ${env:MON:eDP-1}
+;dpi = ${env:PM_DPI:110}
+
+modules-left = weathertext gap-small aqi
+modules-center = crypto
+modules-right = gap clock
+
+
+[module/apps]
+type = custom/text
+content = 
+content-foreground = ${colors.magenta2}
+content-background = ${colors.background}
+content-padding = 3
+click-left = rofi -show drun
+
+[module/crypto]
+type = custom/script
+label-font = 1
+label-foreground = ${colors.foreground}
+label = ETH %output:0:65%
+exec = ~/bin/crypto
+interval = 1800
+
+[module/news]
+type = custom/script
+label-font = 1
+label-foreground = ${colors.foreground}
+label =   %output:0:60%...
+exec = ~/.config/polybar/scripts/news
+double-click-left = firefox https://news.ycombinator.com/
+interval = 120
+
+[module/clock]
+type = custom/script
+label-font = 0
+label =   %output%
+exec = ~/.config/polybar/scripts/clock
+interval = 5
+click-left = ~/.config/polybar/scripts/calendar
+
+[module/weathericon]
+type = custom/script
+label = %output:1:4%
+label-font = 9 
+exec = ~/bin/weather -i
+interval = 900
+[module/weathertext]
+type = custom/script
+label = %output:0:45%
+; label-font = 10
+; exec = ~/bin/weather -t
+exec = ~/bin/wthr
+interval = 900
+
+[module/aqi]
+type = custom/script
+label = AQI %output%
+label-font = 0 
+exec = ~/bin/airnow
+interval = 900
+
+
+[module/spotify]
+type = custom/script
+interval = 1
+label-font = 1
+format-prefix = " "
+format = <label>
+exec = python ~/.config/polybar/scripts/spotify -f '{artist}: {song}'
+label = %output:0:30%
+
+[module/now-playing]
+type = custom/script
+label = %output:0:100%
+exec = python -u -W ignore ~/.config/polybar/scripts/now_playing -a '${colors.cyan1}' -i '${colors.blue1}'
+tail = true
+click-left = playerctl play-pause
+click-middle = playerctl next
+click-right = playerctl previous
+
+;--------------------------------------------------------------------;
+; Bottom panel
+;--------------------------------------------------------------------;
+
+[bar/bottom]
+inherit = common/bar
+
+tray-position = right
+tray-detatched = true
+tray-padding = 3
+tray-maxsize = 22
+fixed-center = true
+enable-ipc = true
+monitor = ${env:MON:eDP-1}
+; dpi = ${env:PM_DPI:110}
+
+bottom = true
+padding-left = 3
+
+modules-left = gap-small bspwm gap-small uptime 
+modules-center = title
+modules-right = cpu-usage gap-small memory gap-small network gap-small pulseaudio gap-small redshift gap-small updates gap battery gap-small
+
+[module/bspwm]
+inherit = common/bspwm
+
+ws-icon-0 = terminal;
+ws-icon-1 = code;
+ws-icon-2 = tor;
+ws-icon-3 = web;
+ws-icon-4 = music;
+ws-icon-5 = chat;
+ws-icon-6 = misc;
+ws-icon-default = 
+
+[module/uptime]
+type = custom/script
+exec = uptime -p | tr -d '[:alpha:] ' | tr ',' ':'
+interval = 60
+label =   %output%
+
+[module/cpu-brand]
+type = custom/text
+content = %{T6}RYZ%{T-}%{T7}E%{T-}%{T6}N%{T-}
+
+[module/cpu-usage]
+type = internal/cpu
+interval = 5
+format-prefix = " "
+label = %percentage%%
+
+
+[module/memory]
+type = internal/memory
+interval = 5
+format-prefix = " "
+label = %percentage_used%%
+
+[module/filesystem]
+type = internal/fs
+interval = 30
+mount-0 = /
+
+format-mounted-prefix = %{A1:baobab:}  %{A}
+label-mounted = %{A1:baobab:}%percentage_used%%%{A}
+label-unmounted = %mountpoint% not mounted
+label-unmounted-foreground = ${colors.red2}
+
+[module/network]
+type = internal/network
+interface = ${env:WLAN} 
+
+interval = 5
+ping-interval = 0
+accumulate-stats = false
+
+format-connected = <ramp-signal><label-connected>
+format-disconnected = <label-disconnected>
+format-packetloss = <label-connected>
+label-connected-foreground = ${colors.magenta2}
+label-connected = %essid%
+label-signal = %signal%
+label-disconnected =  Disconnected
+label-disconnected-foreground = ${colors.magenta1}
+
+ramp-signal-0 = %{T5}%{T-}
+ramp-signal-1 = %{T5}%{T-}
+ramp-signal-2 = %{T5}%{T-}
+ramp-signal-3 = %{T5}%{T-}
+ramp-signal-4 = %{T5}%{T-}
+
+; [module/usb-audio]
+; inherit = common/pulseaudio
+; sink = alsa_output.usb-Focusrite_Scarlett_2i2_USB-00.analog-stereo
+
+[module/redshift]
+type = custom/script
+exec = ~/.config/polybar/scripts/rsctl -p '#626483' '#8be9fd' '#f1fa8c' '#ff5555'
+interval = 5
+click-left = ~/.config/polybar/scripts/rsctl -t
+
+[module/updates]
+type = custom/script
+label =  %output%
+exec = ~/.config/polybar/scripts/updates -p
+interval = 600
+click-left = ~/.config/polybar/scripts/updates -g
+
+
+[module/battery]
+type = internal/battery
+
+full-at = 99
+battery = ${env:$BAT:BAT0}
+adapter = ${env:$ACAD:AC}
+poll-interval = 2
+time-format = %H:%M
+
+format-charging = <animation-charging> <label-charging>
+format-charging-padding = 1
+format-charging-foreground = ${colors.magenta1}
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+
+format-discharging = <ramp-capacity> <label-discharging>
+format-discharging-padding = 1
+format-discharging-foreground = ${colors.magenta2}
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+label-full =  100% 
+label-full-foreground = ${colors.green2}
+
+[module/power-menu]
+type = custom/text
+content-foreground = ${colors.red2}
+content = 
+click-right = mygtkmenu ~/.config/mygtkmenu/power-menu
+
+;--------------------------------------------------------------------;
+; Tray
+;--------------------------------------------------------------------;
+
+[bar/tray]
+monitor = ${env:PM_NAME:eDP-1}
+dpi = ${env:PM_DPI:110}
+bottom = true
+background = ${colors.background}
+
+width = 1%
+height = ${env:PM_BAR_HEIGHT:3%}
+offset-x = 98.5%
+offset-y = 0.5%
+
+modules-left = gap
+modules-center =
+modules-right =
+
+tray-position = right
+tray-detatched = true
+tray-padding = 3
+tray-maxsize = 22
+
+;--------------------------------------------------------------------;
+; Left panel
+;--------------------------------------------------------------------;
+
+[bar/left]
+inherit = common/bar-secondary
+
+monitor = ${env:LM_NAME:eDP-1}
+dpi = ${env:LM_DPI:110}
+
+height = ${env:LM_BAR_HEIGHT:2.75%}
+
+;--------------------------------------------------------------------;
+; Right panel
+;--------------------------------------------------------------------;
+
+[bar/right]
+inherit = common/bar-secondary
+
+monitor = ${env:RM_NAME:eDP-1}
+dpi = ${env:RM_DPI:110}
+
+height = ${env:RM_BAR_HEIGHT:2.75%}
+
+;--------------------------------------------------------------------;
+; General
+;--------------------------------------------------------------------;
+
+[settings]
+
+throttle-output = 5
+throttle-output-for = 10
+throttle-input-for = 30
+screenchange-reload = true
+compositing-background = over
+compositing-foreground = over
+compositing-overline = over
+compositing-underline = over
+compositing-border = over
+;compositing-foreground = source
+;compositing-border = over
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+;  vim: set ft=dosini ts=4 sw=4 tw=79 et :

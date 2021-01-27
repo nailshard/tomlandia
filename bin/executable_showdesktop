@@ -1,0 +1,15 @@
+#!/usr/bin/bash
+
+allhidden=true
+for n in $(bspc query -d focused -N); do
+    [[ "null" == $(bspc query -n $n -T | jq '.client' | xargs) ]] && continue
+    echo $n
+    bspc query -n $n -T | jq '.hidden'
+    if [[ "false" == "$(bspc query -n $n -T | jq '.hidden')" ]]; then
+        echo "hiding $n"
+        bspc node $n -g hidden=true
+    else 
+        echo "unhiding $n"
+        bspc node $n -g hidden=false
+    fi
+done

@@ -1,0 +1,39 @@
+#!/usr/bin/python3
+
+import os
+from slackclient import SlackClient
+import sys, time
+
+channel = sys.argv[1]
+
+
+token = os.environ["slacktoken"]
+sc = SlackClient(token)
+
+api_call = sc.api_call("channels.list", exclude_archived=1)
+
+channels = api_call.get('channels')
+
+chanid = ""
+for c in channels:
+    if c.get('name') == channel:
+        chanid = c.get('id')
+if "" == chanid or not sc.rtm_connect():
+    print("shit")
+    sys.exit(1)
+
+users = sc.api_call("users.list")
+#print(users['members'])
+#users = api_call.get('users')
+for u in users['members']:
+    #print(u.get('name'))
+    if u.get('name') == "tom.pickard":
+        userid = u.get('id')
+        break
+
+x = "{ ird: 2, type: message, channel: {}, text: word}".format(userid)
+print(x)
+while True:
+    print( sc.rtm_read())
+    time.sleep(1)
+    #sc.rtm_send_message(chanid, x)

@@ -1,0 +1,13 @@
+#!/usr/bin/bash
+# . .p/ipinfo.io
+loc=$(curl -s -u $TOKEN: ipinfo.io/loc)
+wttr() {
+    # change Paris to your default location
+    local request="wttr.in/Boulder?format=4"
+    # [ "$(tput cols)" -lt 125 ] && request+='?n'
+    r=$(curl -s -H "Accept-Language: ${LANG%_*}" --compressed "$request")
+    r=$(echo $r | tr '+' ',\ ')
+    echo $r | head -n1 | sed 's/🌬/🌬 /g'
+}
+
+wttr

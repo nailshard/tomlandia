@@ -28,18 +28,148 @@ Plug 'vim-scripts/Mouse-Toggle'
 Plug 'liuchengxu/vim-which-key' " , { 'on': ['WhichKey', 'WhichKey!'] }
 Plug 'ktonga/vim-follow-my-lead'
 
+
+
+"              ╔══════════════════════════════════════════════╗
+"  ┈┈┈┈┈┈┈┈┈┈┈┈╫┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈╫┈┈┈┈┈┈┈┈┈┈┈┈
+"  ┈┈┈┈┈┈┈┈┈┈┈┈╫┈┈┈┈┈   ___ _   _ _ __ | |_ __ ___  __  ┈┈┈┈┈┈╫┈┈┈┈┈┈┈┈┈┈┈┈
+"  ┈┈┈┈┈┈┈┈┈┈┈┈╫┈┈┈┈   / __| | | | '_ \| __/ _` \ \/ /   ┈┈┈┈┈╫┈┈┈┈┈┈┈┈┈┈┈┈
+"  ┈┈┈┈┈┈┈┈┈┈┈┈╫┈┈┈┈   \__ \ |_| | | | | || (_| |>  <    ┈┈┈┈┈╫┈┈┈┈┈┈┈┈┈┈┈┈
+"  ┈┈┈┈┈┈┈┈┈┈┈┈╫┈┈┈┈   |___/\__, |_| |_|\__\__,_/_/\_\   ┈┈┈┈┈╫┈┈┈┈┈┈┈┈┈┈┈┈
+"  ┈┈┈┈┈┈┈┈┈┈┈┈╫┈┈┈┈┈       |___/                       ┈┈┈┈┈┈╫┈┈┈┈┈┈┈┈┈┈┈┈
+"  ┈┈┈┈┈┈┈┈┈┈┈┈╫┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈╫┈┈┈┈┈┈┈┈┈┈┈┈
+"              ╚══════════════════════════════════════════════╝
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-tabnine', {'do': 'yarn install --frozen-lockfile'}
+Plug 'iamcco/coc-vimlsp', {'do': 'yarn install'}
+Plug 'neoclide/coc-yaml', {'do': 'yarn install --frozen-lockfile'}
+Plug 'dense-analysis/ale'
+Plug 'chrisbra/csv.vim'
+Plug 'xuhdev/syntax-dosini.vim'
+Plug 'rhysd/vim-clang-format', {'for': 'cpp'}
+Plug 'fatih/vim-go', {'for': 'go'} ", 'do': ':GoUpdateBinaries'}
+Plug 'Glench/Vim-Jinja2-Syntax', {'for': 'jinja'}
+Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax' 
+Plug 'sheerun/vim-polyglot'
+Plug 'vim-python/python-syntax'
+Plug 'google/yapf'
+Plug 'zinit-zsh/zinit-vim-syntax'
+
+"              ╔══════════════════════════════════════════════╗
+"  ┈┈┈┈┈┈┈┈┈┈┈┈╫┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈╫┈┈┈┈┈┈┈┈┈┈┈┈
+"  ┈┈┈┈┈┈┈┈┈┈┈┈╫┈┈┈┈┈┈┈┈┈      _ _ _   _          ┈┈┈┈┈┈┈┈┈┈┈┈╫┈┈┈┈┈┈┈┈┈┈┈┈
+"  ┈┈┈┈┈┈┈┈┈┈┈┈╫┈┈┈┈┈  ___  __| (_) |_(_)_ _    __ _ ┈┈┈┈┈┈┈┈┈╫┈┈┈┈┈┈┈┈┈┈┈┈
+"  ┈┈┈┈┈┈┈┈┈┈┈┈╫┈┈┈┈  / _ \/ _` | | __| | '_ \ / _` | ┈┈┈┈┈┈┈┈╫┈┈┈┈┈┈┈┈┈┈┈┈
+"  ┈┈┈┈┈┈┈┈┈┈┈┈╫┈┈┈┈ |  __/ (_| | | |_| | | | | (_| | ┈┈┈┈┈┈┈┈╫┈┈┈┈┈┈┈┈┈┈┈┈
+"  ┈┈┈┈┈┈┈┈┈┈┈┈╫┈┈┈┈  \___|\__,_|_|\__|_|_| |_|\__, | ┈┈┈┈┈┈┈┈╫┈┈┈┈┈┈┈┈┈┈┈┈
+"  ┈┈┈┈┈┈┈┈┈┈┈┈╫┈┈┈┈┈                          |___/ ┈┈┈┈┈┈┈┈┈╫┈┈┈┈┈┈┈┈┈┈┈┈
+"  ┈┈┈┈┈┈┈┈┈┈┈┈╫┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈╫┈┈┈┈┈┈┈┈┈┈┈┈
+"              ╚══════════════════════════════════════════════╝
+Plug 'jiangmiao/auto-pairs'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'Shougo/neosnippet-snippets'
+Plug 'tomtom/tlib_vim'
+Plug 'marcweber/vim-addon-mw-utils'
+Plug 'majutsushi/tagbar', {'on': 'TagbarToggle'}
+Plug 'Shougo/denite.nvim', {'do': ':UpdateRemotePlugins'}
+Plug 'shougo/neoyank.vim'
+Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+Plug 'vim-scripts/restore_view.vim'
+Plug 'gioele/vim-autoswap'
+Plug 'junegunn/fzf.vim'
+  map ; :Files<CR>
+Plug 'chrisbra/vim-diff-enhanced'
+  " started In Diff-Mode set diffexpr (plugin not loaded yet)
+  if &diff
+     let &diffexpr='EnhancedDiff#Diff("git diff", "--diff-algorithm=patience")'
+  endif
+
+" Tmux
+Plug 'tmux-plugins/vim-tmux'
+Plug 'edkolev/tmuxline.vim'
+Plug 'wellle/tmux-complete.vim'
+Plug 'sunaku/tmux-navigate'
+
+" python
+Plug 'liuchengxu/vista.vim'
+Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+Plug 'tomlion/vim-solidity'
+Plug 'metakirby5/codi.vim'
+
+
+" utilities
+Plug 'mhinz/vim-startify'
+
+Plug 'voldikss/vim-floaterm'
+Plug 'junegunn/gv.vim'
+
+Plug 'thaerkh/vim-workspace'
+Plug 'farmergreg/vim-lastplace'
+
+
+" zo： Open fold in current cursor postion
+" zO： Open fold and sub-fold in current cursor postion recursively
+" zc： Close the fold in current cursor position
+" zC： Close the fold and sub-fold in current cursor position recursively
+Plug 'mbbill/undotree'
+Plug 'fholgado/minibufexpl.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'vim-scripts/sudo.vim'
+Plug 'roxma/nvim-yarp'
+Plug 'nailshard/eleline.vim'
+
+
+
+
+" *****************                _   _                    *****************
+" *****************    _ __  _   _| |_| |__   ___  _ __     *****************
+" *****************   | '_ \| | | | __| '_ \ / _ \| '_ \    *****************
+" *****************   | |_) | |_| | |_| | | | (_) | | | |   *****************
+" *****************   | .__/ \__, |\__|_| |_|\___/|_| |_|   *****************
+" *****************   |_|    |___/                          *****************
+
+
+" *****************                    _ _                  *****************
+" *****************               __ _(_) |_                *****************
+" *****************              / _` | | __|               *****************
+" *****************             | (_| | | |_                *****************
+" *****************              \__, |_|\__|               *****************
+" *****************              |___/                      *****************
+Plug 'peterhurford/send.vim'
+                     
+
+" *****************           ___  _____  ___   _           *****************
+" *****************          / __|/ _ \ \/ / | | |          *****************
+" *****************          \__ \  __/>  <| |_| |          *****************
+" *****************          |___/\___/_/\_\\__, |          *****************
+" *****************                         |___/           *****************
+"
+Plug 'sainnhe/gruvbox-material'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'junegunn/rainbow_parentheses.vim'
+Plug 'norcalli/nvim-colorizer.lua'
+Plug 'myusuf3/numbers.vim'
+Plug 'wavded/vim-stylus'
+Plug 'ryanoasis/vim-devicons'
+Plug 'chrisbra/unicode.vim'
+Plug 'vim-scripts/Toggle'
+
+
+call plug#end()
+
+
 " Plug 'ncm2/ncm2'
 " Plug 'roxma/nvim-yarp'
 " Plug 'ncm2/ncm2-bufword'
 " Plug 'ncm2/ncm2-path'
-"  completion/snippets/linters
-" Plug 'w0rp/ale'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
-
-Plug 'neoclide/coc-tabnine', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-yaml', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
+" Plug 'lervag/vimtex', {'for': 'tex'}
+" Plug 'bfredl/nvim-ipy', {'for': 'python', 'do': ':UpdateRemotePlugins'}
+" Plug 'vimjas/vim-python-pep8-indent'
 " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " let g:deoplete#enable_at_startup = 1
 
@@ -53,119 +183,17 @@ Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
 " Plug 'neoclide/coc-solargraph', {'do': 'yarn install'}
 " Plug 'voldikss/coc-template', {'do': 'yarn install'}
 " Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
-Plug 'iamcco/coc-vimlsp', {'do': 'yarn install'}
 
-Plug 'chrisbra/vim-diff-enhanced'
-" started In Diff-Mode set diffexpr (plugin not loaded yet)
-if &diff
-    let &diffexpr='EnhancedDiff#Diff("git diff", "--diff-algorithm=patience")'
-endif
-
-Plug 'dense-analysis/ale'
-Plug 'honza/vim-snippets'
-Plug 'Shougo/neosnippet-snippets'
-Plug 'tomtom/tlib_vim'
-Plug 'marcweber/vim-addon-mw-utils'
-Plug 'majutsushi/tagbar', {'on': 'TagbarToggle'}
-Plug 'Shougo/denite.nvim', {'do': ':UpdateRemotePlugins'}
-Plug 'shougo/neoyank.vim'
 " Plug 'fisadev/vim-isort', {'for': 'python'}
 " Plug 'tell-k/vim-autoflake', {'for': 'python'}
 " Plug 'nvie/vim-flake8'
-Plug 'rhysd/vim-clang-format', {'for': 'cpp'}
-
-" syntax
-" Plug 'lervag/vimtex', {'for': 'tex'}
-" Plug 'bfredl/nvim-ipy', {'for': 'python', 'do': ':UpdateRemotePlugins'}
-" Plug 'vimjas/vim-python-pep8-indent'
-Plug 'fatih/vim-go', {'for': 'go'} ", 'do': ':GoUpdateBinaries'}
-Plug 'Glench/Vim-Jinja2-Syntax', {'for': 'jinja'}
-Plug 'chrisbra/csv.vim'
-Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
-Plug 'vim-pandoc/vim-pandoc'
-Plug 'vim-pandoc/vim-pandoc-syntax' 
-
-Plug 'sheerun/vim-polyglot'
-Plug 'vim-python/python-syntax'
-Plug 'xuhdev/syntax-dosini.vim'
-Plug 'zinit-zsh/zinit-vim-syntax'
-
-Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
-
-" sessions
-Plug 'vim-scripts/restore_view.vim'
-Plug 'gioele/vim-autoswap'
 
 
-" lint / fix / complete
-Plug 'google/yapf'
-
-" Git
-Plug 'peterhurford/send.vim'
-" Tmux
-Plug 'tmux-plugins/vim-tmux'
-Plug 'edkolev/tmuxline.vim'
-Plug 'wellle/tmux-complete.vim'
-Plug 'sunaku/tmux-navigate'
-
-
-
-" python
-" Plug 'davidhalter/jedi-vim'
-" Plug 'jeetsukumaran/vim-pythonsense'
-Plug 'liuchengxu/vista.vim'
-Plug 'jiangmiao/auto-pairs'
-" Plug 'numirias/semshi'
-Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
-
-" Plug 'plasticboy/vim-markdown'
-" Plug 'sbdchd/neoformat'
-Plug 'tomlion/vim-solidity'
-Plug 'metakirby5/codi.vim'
-
-
-" utilities
-Plug 'mhinz/vim-startify'
 " Plug 'vimwiki/vimwiki'
 " Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
-
-    Plug 'voldikss/vim-floaterm'
-    Plug 'junegunn/gv.vim'
-    Plug 'junegunn/goyo.vim'
-
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-map ; :Files<CR>
-
-Plug 'thaerkh/vim-workspace'
-Plug 'farmergreg/vim-lastplace'
-
-
-" zo： Open fold in current cursor postion
-" zO： Open fold and sub-fold in current cursor postion recursively
-" zc： Close the fold in current cursor position
-" zC： Close the fold and sub-fold in current cursor position recursively
-Plug 'mbbill/undotree'
-Plug 'fholgado/minibufexpl.vim'
-" Plug 'easymotion/vim-easymotion'
-Plug 'airblade/vim-gitgutter'
-Plug 'vim-scripts/sudo.vim'
-Plug 'roxma/nvim-yarp'
-Plug 'nailshard/eleline.vim'
-
-" appearance
-Plug 'sainnhe/gruvbox-material'
-" Plug 'roman/golden-ratio'
-Plug 'nathanaelkane/vim-indent-guides'
-Plug 'junegunn/rainbow_parentheses.vim'
-
+" Plug 'davidhalter/jedi-vim'
+" Plug 'jeetsukumaran/vim-pythonsense'
+" Plug 'plasticboy/vim-markdown'
+" Plug 'sbdchd/neoformat'
 " Plug 'lilydjwg/colorizer', { 'on': 'ColorToggle' }
-Plug 'norcalli/nvim-colorizer.lua'
-Plug 'myusuf3/numbers.vim'
-Plug 'wavded/vim-stylus'
-Plug 'ryanoasis/vim-devicons'
-Plug 'chrisbra/unicode.vim'
-Plug 'vim-scripts/Toggle'
-
-call plug#end()
-
+" Plug 'easymotion/vim-easymotion'

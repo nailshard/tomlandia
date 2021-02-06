@@ -522,3 +522,5 @@ compile_or_recompile $compdump
 
 [[ true == $DOZOPROF ]] && zprof && zmodload -u zsh/zprof
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

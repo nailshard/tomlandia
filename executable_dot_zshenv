@@ -4,7 +4,7 @@
 # https://github.com/agkozak/dotfiles
 
 # Benchmarks {{{1
-
+echo "---- zshenv ----"
 typeset -F SECONDS=0
 
 # }}}1
@@ -44,5 +44,15 @@ fi
 typeset -g TOM_ZSHENV_BENCHMARK=${$(( SECONDS * 1000))%.*}
 
 # }}}1
-
-# vim: ai:fdm=marker:ts=2:et:sts=2:sw=2
+[[ -z "$TMUX" ]] && export STARTTMUX=1
+#   export CCDIR=$PWD
+#   echo $CCDIR > /tmp/ccdir
+  
+#   cd /tmp
+#   tmux -vv
+#   exit $?
+# elif [[ "/tmp" == "$PWD" ]]; then
+#   cd $HOME
+# fi
+# # [[ -n "$STARTTMUX" ]] && tmux
+# # vim: ai:fdm=marker:ts=2:et:sts=2:sw=2

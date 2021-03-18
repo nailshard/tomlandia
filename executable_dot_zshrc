@@ -250,14 +250,20 @@ zinit wait"2" lucid for \
 # OMZ Libs and Plugins   #
 ##########################
 zinit lucid for \
-    atinit"
-        ZSH_TMUX_FIXTERM=true
-        ZSH_TMUX_AUTOSTART=False
-        ZSH_TMUX_AUTOCONNECT=true
-    " \
-    OMZP::tmux \
     atinit"HIST_STAMPS=dd.mm.yyyy" \
       OMZL::history.zsh \
+    atinit"
+        ZSH_TMUX_FIXTERM=true
+        ZSH_TMUX_AUTOSTART=true
+        ZSH_TMUX_AUTOSTART_ONCE=true
+        ZSH_TMUX_AUTOCONNECT=false
+    " \
+    OMZP::tmux 
+# ZSH_TMUX_FIXTERM=true
+# ZSH_TMUX_AUTOSTART=true
+# ZSH_TMUX_AUTOSTART_ONCE=false
+# ZSH_TMUX_AUTOCONNECT=true
+# zinit load zpm-zsh/tmux
 
 
 # zinit wait lucid light-mode for \

@@ -1,16 +1,20 @@
 #!/bin/bash
 xterm=kitty
 xterm=alacritty
-misc="-vv"
+misc=""
 class="--class myterm"
 xflag=""
-cmd="-e tmux"
+# cur=$PWD;cd /tmp;nd ARGS;cd $current_dir;
+
+bcmd="(cd /tmp; tmux -vv)"
+cmd="" #"-e /usr/bin/bash -c $bcmd"
 lpath=/tmp/$xterm.log
 touch $lpath
 echo "****************************************" >> $lpath
 echo "********* $(date)  ********************" >> $lpath
 echo >> $lpath
-$xterm $misc $class $xflag $cmd >$lpath 2>&1
+echo "CCC=$PWD $xterm $misc $class $xflag $cmd" #>$lpath 2>&1
+$xterm $misc $class $xflag $cmd 2>&1 | tee $lpath
 #s="1"
 # mon=$(i3-msg -s $(i3 --get-socketpath) -t get_workspaces | \
 #     jq '.[] | select(.focused == true) | .output')

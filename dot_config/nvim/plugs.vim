@@ -9,21 +9,21 @@ Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-commentary'
 Plug 'jiangmiao/auto-pairs'
-Plug 'tpope/vim-unimpaired'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'AndrewRadev/splitjoin.vim'
-Plug 'vim-scripts/DrawIt'
+" Plug 'tpope/vim-unimpaired'
+" Plug 'terryma/vim-multiple-cursors'
+" Plug 'AndrewRadev/splitjoin.vim'
+" Plug 'vim-scripts/DrawIt'
 Plug 'machakann/vim-highlightedyank'
 Plug 'Yggdroot/indentLine'
 Plug 'romainl/vim-cool'
 Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
-Plug 'bagrat/vim-buffet'
-Plug 'Xuyuanp/nerdtree-git-plugin'
+" Plug 'bagrat/vim-buffet'
+" Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'airblade/vim-gitgutter'
-Plug 'junegunn/gv.vim'
+" Plug 'junegunn/gv.vim'
 Plug 'vim-scripts/Mouse-Toggle'
 Plug 'liuchengxu/vim-which-key' " , { 'on': ['WhichKey', 'WhichKey!'] }
 Plug 'ktonga/vim-follow-my-lead'
@@ -56,7 +56,7 @@ Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax' 
 Plug 'sheerun/vim-polyglot'
 Plug 'vim-python/python-syntax'
-Plug 'google/yapf'
+" Plug 'google/yapf'
 Plug 'zinit-zsh/zinit-vim-syntax'
 
 "              ╔══════════════════════════════════════════════╗
@@ -69,20 +69,18 @@ Plug 'zinit-zsh/zinit-vim-syntax'
 "  ┈┈┈┈┈┈┈┈┈┈┈┈╫┈┈┈┈┈                          |___/ ┈┈┈┈┈┈┈┈┈╫┈┈┈┈┈┈┈┈┈┈┈┈
 "  ┈┈┈┈┈┈┈┈┈┈┈┈╫┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈╫┈┈┈┈┈┈┈┈┈┈┈┈
 "              ╚══════════════════════════════════════════════╝
-Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+  map ; :Files<CR>
 Plug 'Shougo/neosnippet-snippets'
 Plug 'tomtom/tlib_vim'
-Plug 'marcweber/vim-addon-mw-utils'
-Plug 'majutsushi/tagbar', {'on': 'TagbarToggle'}
-Plug 'Shougo/denite.nvim', {'do': ':UpdateRemotePlugins'}
+" Plug 'marcweber/vim-addon-mw-utils'
+" Plug 'majutsushi/tagbar', {'on': 'TagbarToggle'}
+" Plug 'Shougo/denite.nvim', {'do': ':UpdateRemotePlugins'}
 Plug 'shougo/neoyank.vim'
-Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+" Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 Plug 'vim-scripts/restore_view.vim'
 Plug 'gioele/vim-autoswap'
-Plug 'junegunn/fzf.vim'
-  map ; :Files<CR>
 Plug 'chrisbra/vim-diff-enhanced'
   " started In Diff-Mode set diffexpr (plugin not loaded yet)
   if &diff
@@ -96,9 +94,9 @@ Plug 'wellle/tmux-complete.vim'
 Plug 'sunaku/tmux-navigate'
 
 " python
-Plug 'liuchengxu/vista.vim'
-Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
-Plug 'tomlion/vim-solidity'
+" Plug 'liuchengxu/vista.vim'
+" Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+" Plug 'tomlion/vim-solidity'
 Plug 'metakirby5/codi.vim'
 
 
@@ -118,7 +116,7 @@ Plug 'farmergreg/vim-lastplace'
 " zC： Close the fold and sub-fold in current cursor position recursively
 Plug 'mbbill/undotree'
 Plug 'fholgado/minibufexpl.vim'
-Plug 'airblade/vim-gitgutter'
+" Plug 'airblade/vim-gitgutter'
 Plug 'vim-scripts/sudo.vim'
 Plug 'roxma/nvim-yarp'
 Plug 'nailshard/eleline.vim'

@@ -268,12 +268,12 @@ let g:ale_completion_symbols = {
 " hi HighlightedyankRegion cterm=reverse gui=reverse
 
 " nerdtree
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in")
-            \ && v:this_session == "" | NERDTree | endif
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in")
+            " \ && v:this_session == "" | NERDTree | endif
 
 " autocmd StdinReadPre * let s:std_in=1
 " autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0])
@@ -545,7 +545,7 @@ autocmd Filetype xml setlocal ts=2 sw=2 expandtab
 autocmd Filetype css setlocal ts=2 sw=2 expandtab
 autocmd Filetype less setlocal ts=2 sw=2 expandtab
 autocmd Filetype ruby setlocal ts=2 sw=2 expandtab
-autocmd Filetype javascript setlocal ts=4 sw=4 sts=0 noexpandtab
+autocmd Filetype javascript setlocal ts=2 sw=2 sts=0 expandtab
 " autocmd Filetype python setlocal omnifunc=jedi#completions tw=79
 "             \ completeopt-=preview
 "             \ formatoptions+=c

@@ -251,19 +251,22 @@ zinit wait"2" lucid for \
 ##########################
 zinit lucid for \
     atinit"HIST_STAMPS=dd.mm.yyyy" \
-      OMZL::history.zsh \
-    atinit"
-        ZSH_TMUX_FIXTERM=true
-        ZSH_TMUX_AUTOSTART=true
-        ZSH_TMUX_AUTOSTART_ONCE=true
-        ZSH_TMUX_AUTOCONNECT=false
-    " \
-    OMZP::tmux 
-# ZSH_TMUX_FIXTERM=true
-# ZSH_TMUX_AUTOSTART=true
-# ZSH_TMUX_AUTOSTART_ONCE=false
-# ZSH_TMUX_AUTOCONNECT=true
-# zinit load zpm-zsh/tmux
+      OMZL::history.zsh 
+    # atinit"
+    #     ZSH_TMUX_FIXTERM=false
+    #     ZSH_TMUX_AUTOSTART=true
+    #     ZSH_TMUX_AUTOSTART_ONCE=true
+    #     ZSH_TMUX_AUTOCONNECT=false
+    # " \
+    # OMZP::tmux 
+if [[ -z "$SSH_CONNECTION" && -z $TMUX ]]; then
+    tmux new -P
+    # ZSH_TMUX_FIXTERM=true
+    # ZSH_TMUX_AUTOSTART=true
+    # ZSH_TMUX_AUTOSTART_ONCE=false
+    # ZSH_TMUX_AUTOCONNECT=false
+    # zinit load zpm-zsh/tmux
+fi
 
 
 # zinit wait lucid light-mode for \

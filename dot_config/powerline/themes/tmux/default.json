@@ -1,0 +1,42 @@
+{
+	"segments": {
+		"right": [
+			{
+				"function": "powerline.segments.common.net.external_ip",
+				"priority": 50
+			},
+			{
+				"function": "powerline.segments.common.net.network_load",
+				"priority": 50
+			},
+			{
+				"function": "powerline_docker.docker"
+
+			},
+			{
+				"function": "powerline_slotmachine.slotmachine",
+				"priority": 90
+			},
+            {
+                "function": "powerline_swissarmyknife.execute",
+                "priority": 30,
+                "args": {
+                    "commandLine": "ps aux --no-headers | wc -l",
+                    "postContent": "⚙️"
+                }
+            },
+			{
+				"function": "powerline.segments.common.net.hostname",
+                "args": {
+                    "only_if_ssh": true,
+                    "exclude_domain": false
+                }
+			},
+			{
+				"function": "powerline.segments.custom.ssh.hostname"
+			}
+
+
+		]
+	}
+}

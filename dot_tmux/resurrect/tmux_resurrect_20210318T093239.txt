@@ -1,0 +1,16 @@
+pane	0	1	:zsh	1	:*	1	:/home/tom	1	zsh	:
+pane	0	1	:zsh	1	:*	2	:/home/tom	0	zsh	:
+pane	24	1	:zsh	1	:*	1	:/home/tom	1	zsh	:
+pane	25	1	:zsh	1	:*	1	:/home/tom	1	zsh	:
+pane	26	1	:zsh	1	:*	1	:/home/tom	1	zsh	:
+pane	29	1	:zsh	1	:*	1	:/home/tom	1	zsh	:
+pane	32	1	:zsh	1	:*	1	:/home/tom	1	zsh	:
+pane	36	1	:zsh	1	:*	1	:/home/tom	1	nvim	:nvim .zshrc
+window	0	1	1	:*	9fc5,195x47,0,0[195x22,0,0,0,195x24,0,23,6]
+window	24	1	1	:*	6070,100x36,0,0,30
+window	25	1	1	:*	5561,80x22,0,0,31
+window	26	1	1	:*	65f2,102x48,0,0,32
+window	29	1	1	:*	65f5,102x48,0,0,35
+window	32	1	1	:*	63d8,195x46,0,0,38
+window	36	1	1	:*	dea2,85x26,0,0,42
+state		

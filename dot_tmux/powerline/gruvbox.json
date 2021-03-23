@@ -1,0 +1,14 @@
+    {
+	"groups": {
+		"active_window_status": {"fg": "458588",   "bg": "32302f",    "attrs": []},
+		"window_status":        {"fg": "ebdbb2",     "bg": "32302f",    "attrs": []},
+		"activity_status":      {"fg": "b57614",     "bg": "504945",    "attrs": []},
+		"bell_status":          {"fg": "9d0006",        "bg": "504945",    "attrs": []},
+		"window":               {"fg": "d5c4a1",      "bg": "504945",    "attrs": []},
+		"window:divider":       {"fg": "a89984",      "bg": "504945",    "attrs": []},
+		"window:current":       {"fg": "689d6a", "bg": "458588", "attrs": []},
+		"window_name":          {"fg": "fbf1c7",      "bg": "458588", "attrs": ["bold"]},
+		"session":              {"fg": "282828",      "bg": "7c6f64",   "attrs": ["bold"]},
+		"session:prefix":       {"fg": "bdae93",     "bg": "458588", "attrs": ["bold"]}
+	}
+}

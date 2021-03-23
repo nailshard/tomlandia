@@ -1,0 +1,5 @@
+pane	0	1	:~	1	:*	1	:/home/tom	1	zsh	:
+pane	main	1	:zsh:~	1	:*	1	:/home/tom	1	zsh	:
+window	0	1	1	:*	b25d,80x24,0,0,0
+window	main	1	1	:*	c07e,100x36,0,0,1
+state		

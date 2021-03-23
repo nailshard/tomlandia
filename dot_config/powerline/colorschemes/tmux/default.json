@@ -1,14 +1,14 @@
 {
 	"groups": {
 		"active_window_status": { "fg": "gruvbox:blue",   "bg": "gruvbox:bg", "attrs": [] },
-		"window_status":        { "fg": "gruvbox:faded_purple",  "bg": "gruvbox:bg", "attrs": [] },
+		"window_status":        { "fg": "gruvbox:faded_aqua",  "bg": "gruvbox:bg", "attrs": [] },
 		"activity_status":      { "fg": "gruvbox:yellow", "bg": "gruvbox:bg", "attrs": [] },
 		"bell_status":          { "fg": "gruvbox:red",    "bg": "gruvbox:bg", "attrs": [] },
 		"window":               { "fg": "gruvbox:bright_aqua",  "bg": "gruvbox:bg", "attrs": [] },
-		"window:divider":       { "fg": "gruvbox:faded_purple", "bg": "gruvbox:bg", "attrs": [] },
-		"window:current":       { "fg": "gruvbox:fg",  "bg": "gruvbox:faded_purple", "attrs": [] },
-		"window_name":          { "fg": "gruvbox:fg",  "bg": "gruvbox:faded_purple", "attrs": ["bold"] },
-		"session":              { "fg": "gruvbox:fg",  "bg": "gruvbox:faded_purple", "attrs": [] },
-		"session:prefix":       { "fg": "gruvbox:faded_purple", "bg": "gruvbox:fg",  "attrs": [] }
+		"window:divider":       { "fg": "gruvbox:faded_aqua", "bg": "gruvbox:bg", "attrs": [] },
+		"window:current":       { "fg": "gruvbox:fg",  "bg": "gruvbox:faded_aqua", "attrs": [] },
+		"window_name":          { "fg": "gruvbox:fg",  "bg": "gruvbox:faded_aqua", "attrs": ["bold"] },
+		"session":              { "fg": "gruvbox:fg",  "bg": "gruvbox:faded_aqua", "attrs": [] },
+		"session:prefix":       { "fg": "gruvbox:faded_aqua", "bg": "gruvbox:fg",  "attrs": [] }
 	}
 }

@@ -1,0 +1,49 @@
+" General Settings
+sanitize tridactyllocal tridactylsync
+set update.lastchecktime 1610138091944
+set update.nag true
+set update.nagwait 7
+set update.lastnaggedversion 1.14.0
+set update.checkintervalsecs 86400
+set configversion 2.0
+
+" Use vim in tmux for editor.
+set editorcmd alacritty -e tmux -u new nvim -S /home/tom/.cache/nvim/td.vim
+set smoothscroll true
+
+set tabopencontaineraware true
+" set rsscmd rsssave %u
+set visualenterauto false
+" set allowautofocus false
+" set wordpattern [^\s\/]+
+set searchengine g
+
+" jsb Object.keys(tri.config.get("searchurls")).reduce((prev, u) => prev.catch(()=>{}).then(_ => tri.excmds.setnull("searchurls." + u)), Promise.resolve())
+set searchurls.a https://wiki.archlinux.org/index.php?search=%s
+set searchurls.g https://www.google.com/search?q=%s
+set searchurls.w https://en.wikipedia.org/w/index.php?search=%s&title=Special%3ASearch
+
+
+" Ctrl-F should use the browser's native 'find' functionality.
+unbind <C-f>
+
+" But also support Tridactyl search too.
+bind / fillcmdline find
+bind ? fillcmdline find -?
+bind n findnext 1
+bind N findnext -1
+bind ,<Space> nohlsearch
+
+
+bind ;s hint -a
+bind ;S hint -s
+bind u undo tab
+bind U undo window
+bind Y hint -p
+bind y clipboard yankshort
+bind x tabclose
+
+" bind d 
+
+" For syntax highlighting see https://github.com/tridactyl/vim-tridactyl
+" vim: set filetype=tridactyl

@@ -217,13 +217,13 @@ zt 0a light-mode for \
 zt 0b light-mode for \
   autoload'#manydots-magic' \
     knu/zsh-manydots-magic \
-  pick'autoenv.zsh' nocompletions \
-    Tarrasch/zsh-autoenv \
   OMZP::command-not-found/command-not-found.plugin.zsh \
   MichaelAquilina/zsh-autoswitch-virtualenv \
   # pick'autopair.zsh' nocompletions atload'bindkey "^H" backward-kill-word; \
   #   ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(autopair-insert)' \
   #   hlissner/zsh-autopair
+  # pick'autoenv.zsh' nocompletions \
+  #   Tarrasch/zsh-autoenv \
 # remark
 zinit pack for remark
 
@@ -232,7 +232,7 @@ if [[ 'x86_64' == "$(uname -m)" ]]; then
     zinit light sei40kr/fast-alias-tips-bin
     zinit light sei40kr/zsh-fast-alias-tips
 fi
-
+zinit light ptavares/zsh-direnv
 zinit ice pick'init.zsh' blockf
 zinit light laggardkernel/git-ignore
 alias gi="git-ignore"

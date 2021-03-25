@@ -227,8 +227,11 @@ zt 0b light-mode for \
 # remark
 zinit pack for remark
 
-
-zinit light sei40kr/zsh-fast-alias-tips
+if [[ 'x86_64' == "$(uname -m)" ]]; then
+    zinit ice from'gh-r' as'program'
+    zinit light sei40kr/fast-alias-tips-bin
+    zinit light sei40kr/zsh-fast-alias-tips
+fi
 
 zinit ice pick'init.zsh' blockf
 zinit light laggardkernel/git-ignore
@@ -380,5 +383,14 @@ fi
 
 [[ true == $DOZOPROF ]] && zprof && zmodload -u zsh/zprof
 
-
+[[ -d ~/.cargo ]] && source ~/.cargo/env
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+\
+export PATH="/home/tom/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

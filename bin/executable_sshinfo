@@ -1,5 +1,5 @@
 #!/usr/bin/bash
-
+msg="$USER@$(hostnamectl --static)"
 sshcons=$(netstat -punta 2>/dev/null | grep ssh )
 [[ -z $sshcons ]] && echo 👽 && exit 0
 sshest=$(echo $sshcons | grep ESTABLISHED)
@@ -14,7 +14,8 @@ rh=$(nslookup -nodebug $rip)
 tty=$(ps -ef | grep $lproc | grep -v grep | awk '{print $6}')
 ttty=$(tmux list-panes -aF "#{pane_tty}")
 sshpane=0
-tmux list-panes -F "#{pane_current_command}" | grep -q ssh && sshpane=1
-[[ 1 -eq $sshpane ]] && echo [ssh ] $rh || echo 👽
-                    # "postContent": "👻"
-
+tmux list-panes -F "#{pane_current_command} #{pane_active}" \
+    | grep -q 'ssh 1' && sshpane=1
+[[ 1 -eq $sshpane ]] && msg="$msg -[ssh]-> $rh" || msg="$msg [👽]"
+                    # "postContent": "👻"
+echo $msg

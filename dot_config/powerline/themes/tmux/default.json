@@ -15,25 +15,18 @@
                 "function": "powerline_swissarmyknife.execute",
                 "priority": 30,
                 "args": {
-                    "commandLine": "~/bin/sshinfo",
-                    "postContent": ""
+                    "commandLine": "ps aux --no-headers | wc -l",
+                    "postContent": "⚙️"
                 }
             },
             {
                 "function": "powerline_swissarmyknife.execute",
                 "priority": 30,
                 "args": {
-                    "commandLine": "ps aux --no-headers | wc -l",
-                    "postContent": "⚙️"
+                    "commandLine": "~/bin/sshinfo",
+                    "postContent": ""
                 }
-            },
-			{
-				"function": "powerline.segments.common.net.hostname",
-                "args": {
-                    "only_if_ssh": false,
-                    "exclude_domain": false
-                }
-			}
+            }
 
 
 		]

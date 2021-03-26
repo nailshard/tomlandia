@@ -1,7 +1,7 @@
 #!/bin/bash
 export PYENV_ROOT="$HOME/.pyenv"
 # export PYENV_DEBUG=0
-export PYENV_FORCE=1
+export PYENV_FORCE=0
 if [[ ! -d $PYENV_ROOT ]] || [[ 1 -eq $PYENV_FORCE ]]; then
     git clone https://github.com/pyenv/pyenv.git $PYENV_ROOT
     git clone https://github.com/pyenv/pyenv-virtualenv.git \

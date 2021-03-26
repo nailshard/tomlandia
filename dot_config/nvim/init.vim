@@ -116,7 +116,7 @@ end
 syntax enable
 syntax on
 " misc {{{
-set shell=/usr/bin/bash
+set shell=/bin/bash
 " set omnifunc=syntaxcomplete#Complete
 set grepprg=ag\ --vimgrep\ $*
 set grepformat=%f:%l:%c:%m

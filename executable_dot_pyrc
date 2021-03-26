@@ -35,9 +35,7 @@ jedi
 wheel
 urllib3
 requests
-pkg_resources
 json5
-dateutil
 EOF
 
 [[ -e $dppath ]] && (diff $tppath $dppath -q || \

@@ -1,0 +1,36 @@
+# use a certain pyenv version
+uuse_python() {
+    echo "local python_root=$HOME/.pyenv/versions/$1"
+    echo "load_prefix \"$python_root\""
+    echo "layout_python \"$python_root/bin/python\""
+    echo
+}
+
+use_python() {
+    # uuse_python $1
+    if [ -n "$(which pyenv)" ]; then
+        local pyversion=$1
+        pyenv local ${pyversion}
+    fi
+}
+
+layout_virtualenv() {
+    local pyversion=$1
+    local pvenv=$2
+    if [ -n "$(which pyenv virtualenv)" ]; then
+        pyenv virtualenv --force --quiet ${pyversion} ${pvenv}-${pyversion}
+    fi
+    pyenv local --unset
+}
+
+layout_activate() {
+    if [ -n "$(which pyenv)" ]; then
+        source $(pyenv root)/versions/$1/bin/activate
+    fi
+}
+
+# layout_deactivate() {
+#     if [ -n "$(which pyenv)" ]; then
+#         source deactivate
+#     fi
+# }

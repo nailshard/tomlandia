@@ -46,6 +46,21 @@
     },
     "suggest.localityBonus": true,
     "languageserver": {
+        "ccls": {
+            "command": "ccls",
+            "args": ["--log-file=/tmp/ccls.log", "-v=1"],
+            "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"],
+            "rootPatterns": [".ccls", "compile_commands.json", ".git/", ".hg/"],
+            "initializationOptions": {
+                "cache": {
+                    "directory": "/tmp/ccls"
+                },
+                "client": {
+                    "snippetSupport": true
+                }
+            }
+        },
+
         "go": {
             "command": "gopls",
             "rootPatterns": ["go.mod"],
@@ -60,7 +75,7 @@
         "python": {
             "command": "pyls",
             "args": [
-            //    "-v",
+                //    "-v",
                 "--log-file",
                 "/tmp/lsp_python.log"
             ],
@@ -71,55 +86,55 @@
             "settings": {
                 "pyls": {
                     "enable": true,
-             //       "trace": {
-              //          "server": "verbose"
-               //     },
-                    "commandPath": "/home/tom/.pyenv/shims/pyls",
-                    "configurationSources": [
-                        "pycodestyle"
-                    ],
-                    "plugins": {
-                        "jedi_completion": {
-                            "enabled": true
-                        },
-                        "jedi_hover": {
-                            "enabled": false
-                        },
-                        "jedi_references": {
-                            "enabled": true
-                        },
-                        "jedi_signature_help": {
-                            "enabled": false
-                        },
-                        "jedi_symbols": {
-                            "enabled": true,
-                            "all_scopes": true
-                        },
-                        "mccabe": {
-                            "enabled": true,
-                            "threshold": 15
-                        },
-                        "preload": {
-                            "enabled": true
-                        },
-                        "pycodestyle": {
-                            "enabled": false
-                        },
-                        "pydocstyle": {
-                            "enabled": false,
-                            "match": "(?!test_).*\\.py",
-                            "matchDir": "[^\\.].*"
-                        },
-                        "pyflakes": {
-                            "enabled": false
-                        },
-                        "rope_completion": {
-                            "enabled": true
-                        },
-                        "yapf": {
-                            "enabled": true
+                    //       "trace": {
+                        //          "server": "verbose"
+                        //     },
+                        "commandPath": "/home/tom/.pyenv/shims/pyls",
+                        "configurationSources": [
+                            "pycodestyle"
+                        ],
+                        "plugins": {
+                            "jedi_completion": {
+                                "enabled": true
+                            },
+                            "jedi_hover": {
+                                "enabled": false
+                            },
+                            "jedi_references": {
+                                "enabled": true
+                            },
+                            "jedi_signature_help": {
+                                "enabled": false
+                            },
+                            "jedi_symbols": {
+                                "enabled": true,
+                                "all_scopes": true
+                            },
+                            "mccabe": {
+                                "enabled": true,
+                                "threshold": 15
+                            },
+                            "preload": {
+                                "enabled": true
+                            },
+                            "pycodestyle": {
+                                "enabled": false
+                            },
+                            "pydocstyle": {
+                                "enabled": false,
+                                "match": "(?!test_).*\\.py",
+                                "matchDir": "[^\\.].*"
+                            },
+                            "pyflakes": {
+                                "enabled": false
+                            },
+                            "rope_completion": {
+                                "enabled": true
+                            },
+                            "yapf": {
+                                "enabled": true
+                            }
                         }
-                    }
                 }
             }
         },

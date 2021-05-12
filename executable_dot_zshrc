@@ -9,20 +9,11 @@ elif [[ $0 == 'bash' ]]; then
   source "$HOME/.bashrc" && exit
 fi
 
-# }}}1
 
-# Begin .zshrc benchmarks {{{1
-
-# To run zprof, execute
 #
-#   env ZSH_PROF='' zsh -ic zprof
-# (( $+ZSH_PROF )) && zmodload zsh/zprof
-DOZOPROF=false
-[[ true == $DOZOPROF ]] && zmodload zsh/zprof
-
-
 
 [[ -f ~/.shrc ]] && source ${HOME}/.shrc
+
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export UPDATE_INTERVAL=15
@@ -42,7 +33,7 @@ if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
         print -P "%F{160}▓▒░ The clone has failed.%f%b"
 fi
 
-source "$HOME/.zinit/bin/zinit.zsh"
+source $HOME/.zinit/bin/zinit.zsh
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
@@ -85,12 +76,13 @@ zct() {
 bindkey -v 
 bindkey -M vicmd "q" push-line
 typeset -g HISTSIZE=290000 SAVEHIST=290000 HISTFILE=~/.zhistory
-setopt hist_ignore_dups
+setopt hist_ignore_all_dups
+setopt hist_find_no_dups
 setopt extended_history       # Save time stamps and durations
 setopt hist_expire_dups_first
 setopt inc_append_history
 setopt share_history
-# setopt HISTORY_IGNORE="(ls|[bf]g|exit|reset|clear|cd|cd ..|cd..)"
+setopt HISTORY_IGNORE="(exit|reset|clear)"
 
 setopt interactive_comments
 setopt octal_zeroes
@@ -232,10 +224,22 @@ if [[ 'x86_64' == "$(uname -m)" ]]; then
     zinit light sei40kr/fast-alias-tips-bin
     zinit light sei40kr/zsh-fast-alias-tips
 fi
-zinit light ptavares/zsh-direnv
+
+AUTOENV_FILE_ENTER=.zenv
+AUTOENV_FILE_LEAVE=.zenl
+AUTOENV_LOOK_UPWARDS=1
+AUTOENV_HANDLE_LEAVE=1
+
+zinit light Tarrasch/zsh-autoenv
+
+# zinit light ptavares/zsh-direnv
 zinit ice pick'init.zsh' blockf
 zinit light laggardkernel/git-ignore
 alias gi="git-ignore"
+
+# zinit
+zinit ice lucid as"program" pick"bin/git-dsf"
+zinit load zdharma/zsh-diff-so-fancy
 
 # zinit ice wait"1" lucid
 zinit load psprint/zsh-navigation-tools
@@ -344,7 +348,7 @@ zstyle ':fzf-tab:complete:cd:*' extra-opts \
     --preview=$extract'exa -1 --color=always ${~ctxt[hpre]}$in' 
 
 zstyle :history-search-multi-word page-size 10
-zstyle :history-search-multi-word highlight-color fg=red,bold
+zstyle :history-search-multi-word highlight-color fg=magenta,italic
 zstyle :plugin:history-search-multi-word reset-prompt-protect 1
 #
 FZF_DEFAULT_OPTS="
@@ -371,8 +375,14 @@ ZSHZ_UNCOMMON=1
 KEYTIMEOUT=1
 alias which &> /dev/null && unalias which
 alias grep='grep  --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
-alias ls=lsd
-alias dmsg=dmesg --color=auto --reltime --human --nopager --decode
+
+
+command -v lsd >/dev/null 2>&1 && ls=lsd \
+    || command -v exa >/dev/null 2>&1 && ls=exa \
+    || ls=ls
+alias ls=$ls
+alias bmesg="sudo dmesg --color=auto --reltime --human --nopager --decode"
+alias wmesg="sudo dmesg -w --color=auto --reltime --human --nopager --decode"
 alias free=free -mht
 
 # While tinkering with ZSH-z
@@ -381,12 +391,11 @@ if (( SHLVL == 1 )); then
   cp "${HOME}/.z" "${HOME}/.zbackup/.z_${EPOCHSECONDS}" 2> /dev/null
 fi
 
-[[ true == $DOZOPROF ]] && zprof && zmodload -u zsh/zprof
 
 [[ -d ~/.cargo ]] && source ~/.cargo/env
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+export NVM_DIR=$HOME/.nvm
+[ -s "$NVM_DIR/nvm.sh" ] && \. $NVM_DIR/nvm.sh  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  
 [[ -f $HOME/.pyrc ]] && source $HOME/.pyrc || \
-    (export PATH="$HOME/.pyenv/bin:$PATH"; eval "$(pyenv init -)")
+    (export PATH=$HOME/.pyenv/bin:$PATH; eval "$(pyenv init -)")
